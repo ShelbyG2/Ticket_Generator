@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url(assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf);
+    font-style: normal;
+}
+html,body{
+    /* overflow: hidden; */
+}
+
+body {
+    font-family: Inconsolata;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    background-color: rgb(83, 85, 85);
+    background-image: url(assets/images/background-desktop.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column; /* Changed from flex-flow to flex-direction */
+    justify-content: space-between; /* Changed from center to space-between */
+    align-items: center; 
+    color: aliceblue;
+    background-position: fixed;
+    box-sizing: border-box;
+}
+
+form {
+    text-align: center;
+    display: block;
+    margin-bottom: 0;
+  
+}
+
+
+
+h1 {
+    font-weight: 800;
+}
+
+.card {
+    margin-top: 50px;
+    text-align: left;
+    height: 600px;
+    width: 400px;
+    position: relative;
+    margin-left:2em ;
+
+}
+.card input {
+    margin: 5px;
+    height: 35px;
+    width: 100%;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.122);
+    border:none ;
+    border-radius: 5px;
+    color: aliceblue;
+}
+.card input:focus{
+    border: none;
+    outline: none;
+}
+#info-container {
+font-size: x-small;
+}
+#file-icon{
+    width: 100%;
+    height: 5em;
+    display: flex;
+    flex-flow: column;
+    background-color: rgba(255, 255, 255, 0.122);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: dashed gray 1px;
+
+}
+
+#file-input {
+    display: none;
+}
+
+
+
+.card button {
+    background-color: rgb(225, 97, 81);
+    height: 35px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 6px;
+}
+
+.ticket-container {
+    margin-top: 2em;
+    padding: 1em;
+    text-align: center;
+    color: aliceblue;
+}
+
+
+
+
+    .attribution { font-size: 15px; text-align: center; }
+    .attribution a { color: hsl(77, 76%, 54%); }
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.error {
+    border: 1px solid red;
+}
