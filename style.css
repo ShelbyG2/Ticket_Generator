@@ -16,8 +16,8 @@ body {
     background-image: url(assets/images/background-desktop.png);
     background-size: cover;
     display: flex;
-    flex-direction: column; /* Changed from flex-flow to flex-direction */
-    justify-content: space-between; /* Changed from center to space-between */
+    flex-direction: column; 
+    justify-content: space-between; 
     align-items: center; 
     color: aliceblue;
     background-position: fixed;
@@ -76,7 +76,7 @@ font-size: x-small;
 
 }
 
-#file-input {
+#avatar-input {
     display: none;
 }
 
@@ -91,25 +91,26 @@ font-size: x-small;
     padding: 6px;
 }
 
-.ticket-container {
+#ticket-container {
+    position: absolute;
     margin-top: 2em;
     padding: 1em;
     text-align: center;
     color: aliceblue;
+    display: none;
 }
 
+#ticket-Name{
+    color: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
 
 
+}
 
     .attribution { font-size: 15px; text-align: center; }
     .attribution a { color: hsl(77, 76%, 54%); }
 
-.error-message {
+#error{
     color: red;
     font-size: 0.8em;
     margin-top: 5px;
-}
-
-.error {
-    border: 1px solid red;
 }
