@@ -45,8 +45,4 @@ function validateEmail(email) {
 submitBtn.onclick = function() {
     form.style.display = "none";
     ticket.style.display = "block";
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> e6a08ea8af15dcb47558752b4250c39e5566ea88
