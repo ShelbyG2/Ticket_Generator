@@ -1,29 +1,48 @@
 const fullname = document.getElementById('name');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
-const password = document.getElementById('password');
 const form = document.getElementById('form');
 const errorElement = document.getElementById('error');
-const submitbtn
+const submitBtn = document.getElementById('submitBtn');
+const ticket = document.getElementById('ticket-container');
+const avatar = document.getElementById('avatar-input');
 
-if (form) {
-    form.addEventListener('submit', (e) => {
-        let messages = [];
-        if (fullname.value === ' ' || fullname.value == null) {
-            messages.push('Name is required');
-        }
-        if (username.value.length <= 6) {
-            messages.push('Username must be longer than 6 characters');
-        }
-        if (email.value === '' || email.value == null) { 
-            messages.push('Email is required');
-        }
-        if (password.value.length <= 6) {
-            messages.push('Password must be longer than 6 characters');
-        }
-        if (messages.length > 0) {
-            e.preventDefault();
-            errorElement.innerText = messages.join(', ');
-        }
-    });
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let messages = [];
+
+    if (fullname.value === '') {
+        messages.push('Name is required');
+    } else if (fullname.value.length <= 6) {
+        messages.push('Name must be longer than 6 characters');
+    } else if (fullname.value.length >= 20) {
+        messages.push('Name must be less than 20 characters');
+    }
+
+    if (username.value === '') {
+        messages.push('Username is required');
+    }
+
+    if (email.value === '') {
+        messages.push('Email is required');
+    } else if (!validateEmail(email.value)) {
+        messages.push('Email is invalid!');
+    }
+
+    if (messages.length > 0) {
+        errorElement.innerText = messages.join(', ');
+    } else {
+        form.style.display = "none";
+        ticket.style.display = "block";
+    }
+});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
 }
+
+submitBtn.onclick = function() {
+    form.style.display = "none";
+    ticket.style.display = "block";
+};
