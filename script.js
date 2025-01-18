@@ -5,9 +5,21 @@ const form = document.getElementById('form');
 const errorElement = document.getElementById('error');
 const submitBtn = document.getElementById('submitBtn');
 const ticket = document.getElementById('ticket-container');
-const ticketName= document.getElementById('ticketName');
-const ticketEmail =document.getElementById('ticketEmail');
+const ticketName = document.getElementById('ticketName');
+const ticketEmail = document.getElementById('ticketEmail');
 const avatar = document.getElementById('avatar-input');
+const ticketAvatar = document.getElementById('ticket-avatar');
+const ticketUsername = document.getElementById('ticketUsername');
+
+avatar.addEventListener('change', function() {
+    if (avatar.files.length > 0) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            ticketAvatar.src = e.target.result;
+        }
+        reader.readAsDataURL(avatar.files[0]);
+    }
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -30,6 +42,9 @@ form.addEventListener('submit', (e) => {
     } else if (!validateEmail(email.value)) {
         messages.push('Email is invalid!');
     }
+    if (avatar.files.length === 0) {
+        messages.push('Avatar is required');
+    }
 
     if (messages.length > 0) {
         errorElement.innerText = messages.join(', ');
@@ -44,11 +59,20 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
 }
+
 function updateTicketDetails(){
     ticketName.innerText = fullname.value;
     ticketEmail.innerText = email.value;
-    ticketEmail.style.color='rgb(225, 97, 81)'
-    ticketName.style.color='rgb(213, 76, 57)'}
+    ticketEmail.style.color='rgb(225, 97, 81)';
+    ticketName.style.color='rgb(213, 76, 57)';
+    ticketUsername.innerText = username.value;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        ticketAvatar.src = e.target.result;
+    }
+    reader.readAsDataURL(avatar.files[0]);
+}
 
 submitBtn.onclick = function() {
     form.style.display = "none";
