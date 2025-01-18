@@ -5,6 +5,8 @@ const form = document.getElementById('form');
 const errorElement = document.getElementById('error');
 const submitBtn = document.getElementById('submitBtn');
 const ticket = document.getElementById('ticket-container');
+const ticketName= document.getElementById('ticketName');
+const ticketEmail =document.getElementById('ticketEmail');
 const avatar = document.getElementById('avatar-input');
 
 form.addEventListener('submit', (e) => {
@@ -34,6 +36,7 @@ form.addEventListener('submit', (e) => {
     } else {
         form.style.display = "none";
         ticket.style.display = "block";
+        updateTicketDetails();
     }
 });
 
@@ -41,8 +44,14 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
 }
+function updateTicketDetails(){
+    ticketName.innerText = fullname.value;
+    ticketEmail.innerText = email.value;
+    ticketEmail.style.color='rgb(225, 97, 81)'
+    ticketName.style.color='rgb(213, 76, 57)'}
 
 submitBtn.onclick = function() {
     form.style.display = "none";
     ticket.style.display = "block";
-};
+}
+

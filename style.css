@@ -114,3 +114,6 @@ font-size: x-small;
     font-size: 0.8em;
     margin-top: 5px;
 }
+#ticket-container p{
+    font-size: 1.2em;
+}
